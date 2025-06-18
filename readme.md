@@ -31,4 +31,4 @@ Box inputs:
 ## Other Resources
 - [Excellent 16x2 LCD Dummy on Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0)
     - I uploaded it to Thingiverse [here](https://www.thingiverse.com/thing:7069861)
-    - I backed it up on GitHub [here](https://github.com/TimHanewich/motorcycle-data-display/releases/download/1/LCD.2004.stl)
+    - I backed it up on GitHub [here](https://github.com/TimHanewich/motorcycle-data-display/releases/download/2/LCD.stl)
