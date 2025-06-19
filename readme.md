@@ -20,6 +20,7 @@ I believe the best set up is to have an R1 resistor of **470,000 ohms** and an R
 - Raspberry Pi Pico
 - LM2596 Voltage Converter
 - Voltage divider
+- Power Switch
 
 Box inputs:
 - Battery +
