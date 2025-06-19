@@ -43,7 +43,7 @@ This system's power consumption estimate:
 
 For the components used in this system, that is a total of **68 mA**, or **0.068 A** of current. At a nominal 5 volts, that is **0.34 watts**.
 
-However, this system will be powered by a 12v battery, so an LM2596 converter will be used to *lower* the 12v supply voltage to the 5v that is safely needed. That LM2596 does not have perfect efficiency, so we must account for that in our calculation. So, I'm adding an addition 33% of power consumption on top of that previous 0.34 A figure, arriving at **0.452 watts**. That is very conservative (I doubt it will actually be 33% inefficient).
+However, this system will be powered by a 12v battery, so an LM2596 converter will be used to *lower* the 12v supply voltage to the 5v that is safely needed. That LM2596 does not have perfect efficiency, so we must account for that in our calculation. So, I'm adding an additional 33% of power consumption on top of that previous 0.34 watt figure, arriving at **0.452 watts**. That is very conservative (I doubt it will actually be 33% inefficient).
 
 [The motorcycle battery I have](https://a.co/d/evGOHXQ) is 12v, 8Ah, for a total stored energy of 96 watt hours. When fully charged, the voltage is 12.8v - 13.0v. When fully deplted, the voltage is roughly 11.8v - 11.9v. At 12.4v (70-75% charge), many batteries can start to struggle with cold engine starts, so that is the bar we do **not** want to drop below.
 
