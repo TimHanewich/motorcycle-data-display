@@ -76,6 +76,8 @@ We an see that the relationship between supply voltage is linear. In Excel, we c
 
 ![linest](https://i.imgur.com/UGsR6Ec.png)
 
+*In the above image, please note the `=LINEST()` function expects y-values FIRST and x-values SECOND*
+
 Result:
 - y = 0.00025018479005
 - b = -0.04562527564001
