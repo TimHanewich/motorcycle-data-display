@@ -14,6 +14,8 @@ I believe the best set up is to have an R1 resistor of **22,000 ohms** and an R2
 |15|3.04|
 |10|2.029|
 
+**IMPORTANT: With this voltage divider configuration, the absolute MAXIMUM supply voltage is approximately 16 volts. Beyond this, the divided voltage will exceed 3.3 volts, the maximum the Raspberry Pi can handle on the ADC pins. Exceeding this value may cause damage to the Pi!**
+
 ## Design
 "The box" will contain:
 - LCD Display
