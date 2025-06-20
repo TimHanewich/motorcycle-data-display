@@ -75,7 +75,7 @@ try:
     # Set up ADC for reading the battery supply voltage (hooked up via voltage divider)
     batADC = machine.ADC(26)
     batADC_RA:int = None # the variable that will be used to contain the rolling avg
-    alpha:float = 0.96 # will be used for "smoothing out" (rolling average) the incoming ADC reading... the higher this value is, the smoother it is
+    alpha:float = 0.90 # will be used for "smoothing out" (rolling average) the incoming ADC reading... the higher this value is, the smoother it is
 
     # go into infinite loop display
     while True:
