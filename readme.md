@@ -31,7 +31,7 @@ Box inputs:
 - DHT22 - 
 - DHTT data
 
-## Power Consumption
+## Power Consumption: Theoretical Calculation
 In the event this system was independently left *on* and was continuously drawing current from the motorcycle, for how long can it run before it begins to pose a risk to the ability of the battery to start the motorcycle (not deplete the battery too much)?
 
 Let's look at a "worst case scenario"...
@@ -54,6 +54,8 @@ So, this system can safely draw power from the battery down to 75% of the batter
 With **24 watt hours** to safely consume without posing risk and a parasitic power draw of **0.452 watts**, that leaves us with **~53 hours** that this system can be left on, drawing power from the battery, without posing a risk to depleting the battery to a level in which it cannot cold start the engine. 
 
 Again, this is a very conservative, worst-case scenario calculation! In reality, the current consumption of this system will be less than we budgeted for, the efficiency of the LM2596 will be greater than we planned for, and we can reliably use more power reserves of the battery without introducing risk of it not starting... but better to be on the safe side!
+
+*Important to note: I also discovered that, even in the fully off position (switch turned off), there is still a very tiny draw of power, approximately 0.17 watts*
 
 ## Determining Supply Voltage from the ADC-Read Voltage Divider
 A key step in this project is using the read ADC reading to determine the supply voltage (battery voltage). In commit `8ced83096d89e48986466c1a64de321f39fb7256`, I wrote a lightweight script that would simply print the current voltage supply (GP26) reading as well as a moving average to the LCD display. Using this test script, we can observe the ADC reading the Pi is getting at various supply voltages:
