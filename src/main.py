@@ -33,6 +33,10 @@ lcd = pico_i2c_lcd.I2cLcd(i2c, 39, 2, 16) # height of 2 lines, width of 16 chara
 lcd.backlight_on()
 lcd.putstr("Loading...")
 
+# store degree symbol as a custom character (it doesn't work as is)
+degree:bytes = bytes([0b00110, 0b01001, 0b01001, 0b00110, 0b00000, 0b00000, 0b00000, 0b00000])
+lcd.custom_char(0, degree) # store the degre symbol as custom char #0
+
 # create function for displaying data
 def display_data(temp:float, humidity:float, voltage:float) -> None:
     """Provide temperature as the temp in fahrenheight (i.e. 98.7), provide humidity as a relative humidity percentage (i.e. 0.65 for 65% RH), and voltage as a voltage (i.e. 12.2)"""
@@ -74,6 +78,7 @@ while True:
     else:
         batADC_RA = int((batADC_RA * alpha) + (batADC_val * (1 - alpha)))
     supply_voltage:float = adc_to_supply_volts(batADC_RA) # convert the moving avg. ADC reading into the supply voltage
+    print("Supply voltage: " + str(supply_voltage))
     
     # read the DHT22 values (or at least try to)
     TimesTried:int = 0
@@ -84,7 +89,9 @@ while True:
             sensor.measure()
             tempC = sensor.temperature()
             tempF = (tempC * (9/5)) + 32 # convert Celcius (what the DHT22 provides) into Fahrenheit
-            humidity = sensor.humidity() # relative humidity
+            humidity = sensor.humidity() / 100 # relative humidity, but divide by 100 because the DHT22 sensor class provides it like "56.7", but I prefer to handle it as a value between 0.0 and 1.0
+            print("TempF: " + str(tempF))
+            print("Humidity: " + str(humidity))
         except:
             print("Failed to read from DHT22 on attempt # " + str(TimesTried))
             TimesTried = TimesTried + 1
