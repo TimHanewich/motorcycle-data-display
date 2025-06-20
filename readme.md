@@ -53,6 +53,35 @@ With **24 watt hours** to safely consume without posing risk and a parasitic pow
 
 Again, this is a very conservative, worst-case scenario calculation! In reality, the current consumption of this system will be less than we budgeted for, the efficiency of the LM2596 will be greater than we planned for, and we can reliably use more power reserves of the battery without introducing risk of it not starting... but better to be on the safe side!
 
+## Determining Supply Voltage from the ADC-Read Voltage Divider
+A key step in this project is using the read ADC reading to determine the supply voltage (battery voltage). In commit `8ced83096d89e48986466c1a64de321f39fb7256`, I wrote a lightweight script that would simply print the current voltage supply (GP26) reading as well as a moving average to the LCD display. Using this test script, we can observe the ADC reading the Pi is getting at various supply voltages:
+
+|Supply Voltage|Multimeter Voltage Reading|ADC Reading|
+|-|-|-|
+|15.88 |15.88|63,650|
+|15.03|15.04 |60,200|
+|14.22|14.23 |57,110|
+|13.19|13.21 |53,020|
+|12.20|12.20 |48,930|
+|11.73|11.75 |47,115|
+|11.09|11.11 |44,500|
+|10.43|10.45 |41,835|
+|9.80|9.82|39,445|
+|8.93|8.96|35,980|
+|8.07|8.10|32,475|
+
+The table above includes the test results from this experiment. The "Supply Voltage" column contains the voltage my DC power supply claimed it was supplying, the "Multimeter Voltage Reading" column contains the voltage my multimeter was reading, touching the alligator clips, and the "ADC Reading" is the Pi Pico's average reading at that voltage level.
+
+We an see that the relationship between supply voltage is linear. In Excel, we can treat these as a series of X,Y pairs and pass them into the `=LINEST()` function to determine `m` and `b` in the equation `y = mx + b` (estimate the y-intercept and slope). In our experiment, we set a voltage and determined the ADC reading which indeed means the voltage is the independent variable (X) with the reading being the dependent variable (Y). However, for the sake of our project, we want to do the opposite - infer supply voltage *from the ADC reading*. So, when I use Excel's `=LINEST()` function, I am treating the ADC reading as X value and Volts as the Y value.
+
+![linest](https://i.imgur.com/UGsR6Ec.png)
+
+Result:
+- y = 0.00025018479005
+- b = -0.04562527564001
+
+So, to infer the supply voltage from the ADC reading, simply multiply the ADC reading by the `y` value above and then add `b`!
+
 ## Other Resources
 - [Excellent 16x2 LCD Dummy on Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0)
     - I uploaded it to Thingiverse [here](https://www.thingiverse.com/thing:7069861)
