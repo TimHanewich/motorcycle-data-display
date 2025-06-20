@@ -74,15 +74,21 @@ The table above includes the test results from this experiment. The "Supply Volt
 
 We an see that the relationship between supply voltage is linear. In Excel, we can treat these as a series of X,Y pairs and pass them into the `=LINEST()` function to determine `m` and `b` in the equation `y = mx + b` (estimate the y-intercept and slope). In our experiment, we set a voltage and determined the ADC reading which indeed means the voltage is the independent variable (X) with the reading being the dependent variable (Y). However, for the sake of our project, we want to do the opposite - infer supply voltage *from the ADC reading*. So, when I use Excel's `=LINEST()` function, I am treating the ADC reading as X value and Volts as the Y value.
 
-![linest](https://i.imgur.com/UGsR6Ec.png)
+![linest](https://i.imgur.com/3oq0qMi.png)
 
 *In the above image, please note the `=LINEST()` function expects y-values FIRST and x-values SECOND*
 
 Result:
-- y = 0.00025018479005
+- m = 0.00025018479005
 - b = -0.04562527564001
 
 So, to infer the supply voltage from the ADC reading, simply multiply the ADC reading by the `y` value above and then add `b`!
+
+## Notable Commits
+|Commit|Note|
+|-|-|
+|`8ced83096d89e48986466c1a64de321f39fb7256`|Basic code for displaying voltage supply ADC reading to display|
+|`061c1e2b2cda765a97523a54c5203dea3d97f5c9`|Basic code for displaying voltage supply ADC reading to display, but with the voltage being calculated and display as well|
 
 ## Other Resources
 - [Excellent 16x2 LCD Dummy on Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0)
