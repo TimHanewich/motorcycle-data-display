@@ -27,7 +27,6 @@ def adc_to_supply_volts(adc_val:int) -> float:
 # place the whole thing in a massive Try bracket to handle errors
 try:
 
-
     # Set up LCD
     i2c = machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17))
     i2c_scan:list[int] = i2c.scan()
@@ -112,7 +111,6 @@ try:
 
         # wait
         time.sleep(1.0)
-    
-
+        
 except: # if there is an unhandled problem...
     PROBLEM() # ... just show the problem sequence on the Pi's LED
