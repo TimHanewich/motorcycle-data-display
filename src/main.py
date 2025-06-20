@@ -51,8 +51,14 @@ def display_data(temp:float, humidity:float, voltage:float) -> None:
     lcd.putstr(line1)
     
     # assemble line 2 (temp + humidity)
-    tDisplay:str = str(round(temp, 1)) + " " + chr(0) + "F"
-    hDisplay:str = str(round(humidity * 100, 1)) + " %H"
+    tValDisplay:str = "?" # default to "?" in case there is an issue (i.e. it was supplied as null)
+    if temp != None:
+        tValDisplay = str(round(temp, 1))
+    hValDisplay:str = "?" # default to "?" in case there is an issue (i.e. it was supplied as null)
+    if humidity != None:
+        hValDisplay = str(round(humidity * 100, 1))
+    tDisplay:str = tValDisplay + " " + chr(0) + "F"
+    hDisplay:str = hValDisplay + " %H"
     SpacesBetween = 16 - len(tDisplay) - len(hDisplay) # how many spaces to put in between
     line2:str = tDisplay + (' ' * SpacesBetween) + hDisplay
     
