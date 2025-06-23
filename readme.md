@@ -95,7 +95,10 @@ So, to infer the supply voltage from the ADC reading, simply multiply the ADC re
 |`061c1e2b2cda765a97523a54c5203dea3d97f5c9`|Basic code for displaying voltage supply ADC reading to display, but with the voltage being calculated and display as well|
 
 ## Other Resources
-- [Excellent 16x2 LCD Dummy on Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0)
+- [16x2 LCD Dummy on Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0)
     - I uploaded it to Thingiverse [here](https://www.thingiverse.com/thing:7069861)
     - I backed it up on GitHub [here](https://github.com/TimHanewich/motorcycle-data-display/releases/download/2/LCD.stl)
+    - I actually had trouble with this; at least for a 16x2 LCD display I got out a kit years ago, it did not truly fit... the screw positions appear to be off.
+- [16x2 LCD Dummy](https://www.thingiverse.com/thing:3505029)
+    - Comparing to the one above, the screw holes (4 corners) are indeed different - maybe this would have fit mine better?
 - Link to this repository, shortened with bit.ly: [bit.ly/3SXN4vF](bit.ly/3SXN4vF)
