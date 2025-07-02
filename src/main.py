@@ -31,6 +31,7 @@ try:
     i2c = machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17))
     i2c_scan:list[int] = i2c.scan()
     if 39 not in i2c_scan: # if the 16x2 LCD display is not found on the i2c bus, there is a wiring issue
+        print("LCD display not detected on I2C bus! Going to fail pattern...")
         PROBLEM() # infinite problem display
     lcd = pico_i2c_lcd.I2cLcd(i2c, 39, 2, 16) # height of 2 lines, width of 16 characters)
     lcd.backlight_on()
