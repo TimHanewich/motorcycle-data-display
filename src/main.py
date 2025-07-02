@@ -112,5 +112,6 @@ try:
         # wait
         time.sleep(1.0)
         
-except: # if there is an unhandled problem...
+except Exception as ex: # if there is an unhandled problem...
+    print("Fatal error: " + str(ex))
     PROBLEM() # ... just show the problem sequence on the Pi's LED
