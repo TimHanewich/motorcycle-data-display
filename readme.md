@@ -5,6 +5,7 @@ This project features a 3D printed dashboard-like system mounted on a motorcycle
 
 ## Required Hardware
 - 🖨️ Custom 3D printed enclosure (.STL files included below)
+- 🔌[Toggle Power Switch](https://a.co/d/0Lbv3p1)
 - 📟 [16x2 LCD Display](https://a.co/d/b4bnMaQ)
 - 🔌 Voltage Divider circuit to measure battery voltage (*read more below*)
 - 🌡️ [DHT22 sensor](https://a.co/d/ewYQhxm) for ambient temperature and humidity
@@ -12,6 +13,11 @@ This project features a 3D printed dashboard-like system mounted on a motorcycle
 - ⚡ [LM2596 buck converter](https://a.co/d/bLv2FjF)
 - 🔋 Powered by the motorcycle's 12V battery
     - You can directly wire it to your battery terminals or use [an SAE connector](https://a.co/d/0mAilbJ) connected to your battery's tender if it has one, like I did.
+
+## Wiring Diagram
+I provide the full wiring diagram as [wiring.drawio](./wiring.drawio) in this repository. Visit [draw.io](https://draw.io) to open this file.
+
+![wiring](https://i.imgur.com/RtzVz5e.png)
 
 ## 3D Printed Enclosure
 I designed and 3D-printed the enclosure for this project. You can find the STL files available for download for free on Thingiverse [here](https://www.thingiverse.com/thing:7082009).
