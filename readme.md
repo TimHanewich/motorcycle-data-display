@@ -55,12 +55,6 @@ As seen above, the effects of this voltage divider effectively drop the input vo
 
 **IMPORTANT: With this voltage divider configuration, the absolute MAXIMUM supply voltage is approximately 16 volts. Beyond this, the divided voltage will exceed 3.3 volts, the maximum the Raspberry Pi can handle on the ADC pins. Exceeding this value may cause damage to the Pi!**
 
-## Notable Commits
-|Commit|Note|
-|-|-|
-|`8ced83096d89e48986466c1a64de321f39fb7256`|Basic code for displaying voltage supply ADC reading to display|
-|`061c1e2b2cda765a97523a54c5203dea3d97f5c9`|Basic code for displaying voltage supply ADC reading to display, but with the voltage being calculated and display as well|
-
 ## Other Resources
 - I modeled my 16x2 LCD enclosure around [this excellent dummy model](https://www.thingiverse.com/thing:3505029)
     - I originally designed it around this [16x2 LCD Dummy from Sketchfab](https://sketchfab.com/3d-models/lcd-2004-16x2-hd44780-dummy-ea053f7f3c7045e4940769e17f48a0d0) (backed up [here](https://github.com/TimHanewich/motorcycle-data-display/releases/download/2/LCD.stl))but realized that this one is not correct, it's dimensions are off! Do NOT use this one!

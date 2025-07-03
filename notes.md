@@ -54,3 +54,9 @@ Result:
 - b = -0.04562527564001
 
 So, to infer the supply voltage from the ADC reading, simply multiply the ADC reading by the `y` value above and then add `b`!
+
+## Notable Commits
+|Commit|Note|
+|-|-|
+|`8ced83096d89e48986466c1a64de321f39fb7256`|Basic code for displaying voltage supply ADC reading to display|
+|`061c1e2b2cda765a97523a54c5203dea3d97f5c9`|Basic code for displaying voltage supply ADC reading to display, but with the voltage being calculated and display as well|
