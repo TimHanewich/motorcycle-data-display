@@ -1,35 +1,48 @@
 # Motorcycle Data Display
-Displaying battery voltage, ambiet temperature, and ambiet humidity.
+This project features a 3D printed dashboard-like system mounted on a motorcycle, using a Raspberry Pi Pico to monitor and display real-time motorcycle battery voltage, ambient temperature, and humidity. It uses a 16x2 LCD and is powered directly by the motorcycle's battery.
 
-Example display:
-![example](https://i.imgur.com/XnHHV8R.png)
+![example](https://i.imgur.com/Inj0Ljx.jpeg)
+
+## Hardware
+- 🖨️ Custom 3D printed enclosure (.STL files included below)
+- 📟 [16x2 LCD Display](https://a.co/d/b4bnMaQ)
+- 🔌 Voltage Divider circuit to measure battery voltage (*read more below*)
+- 🌡️ [DHT22 sensor](https://a.co/d/ewYQhxm) for ambient temperature and humidity
+- 🧠 [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) for control logic
+- ⚡ [LM2596 buck converter](https://a.co/d/bLv2FjF)
+- 🔋 Powered by the motorcycle's 12V battery
+    - You can directly wire it to your battery terminals or use [an SAE connector](https://a.co/d/0mAilbJ) connected to your battery's tender if it has one, like I did.
+
+## 3D Printed Enclosure
+I designed and 3D-printed the enclosure for this project. You can find the STL files available for download for free on Thingiverse [here](https://www.thingiverse.com/thing:7082009).
+
+This enclosure will contain all hardware:
+- 16x2 LCD Display
+- Power Switch
+- Raspberry Pi Pico
+- Voltage divider
+- LM2596 Voltage Converter (drops battery's voltage down to a stable 5v supply for Raspberry Pi, display, and sensors)
+
+The enclosure will have **five** wires running in/out of it (a hole in the enclosure accomodates this):
+- Motorcycle Battery +
+- Motorcycle Battery - 
+- DHT22 Power Supply +
+- DHT22 Power Supply - 
+- DHT22 data line
 
 ## Voltage Divider
-A voltage divider must be used to drop the battery voltage (around 12v) to a range in which the Raspberry Pi Pico can safely read, between 0.0 and 3.3 volts.
+A voltage divider must be used to drop the battery voltage (around 12v for a standard motorcycle battery) to a range in which the Raspberry Pi Pico can safely read, between 0.0 and 3.3 volts. You can read more about voltage dividers [here](https://learn.sparkfun.com/tutorials/voltage-dividers/all).
 
-I believe the best set up is to have an R1 resistor of **22,000 ohms** and an R2 resistor of **5,600 ohms**. This drops the voltage down to 20.29% of itself.
+I purchased [this package of resistors](https://a.co/d/0yozjyX) and made a voltage divider using a **22,000 ohm** R1 resistor and a **5,600 ohm** R2 resistor. This drops the voltage down to 20.29% of itself.
 
 |Voltage|Divided|
 |-|-|
 |15|3.04|
 |10|2.029|
 
+As seen above, the effects of this voltage divider effectively drop the input voltage down to something that is safe to provide to the Pi.
+
 **IMPORTANT: With this voltage divider configuration, the absolute MAXIMUM supply voltage is approximately 16 volts. Beyond this, the divided voltage will exceed 3.3 volts, the maximum the Raspberry Pi can handle on the ADC pins. Exceeding this value may cause damage to the Pi!**
-
-## Design
-"The box" will contain:
-- LCD Display
-- Raspberry Pi Pico
-- LM2596 Voltage Converter
-- Voltage divider
-- Power Switch
-
-Box inputs:
-- Battery +
-- Battery - 
-- DHT22 +
-- DHT22 - 
-- DHTT data
 
 ## Power Consumption: Theoretical Calculation
 In the event this system was independently left *on* and was continuously drawing current from the motorcycle, for how long can it run before it begins to pose a risk to the ability of the battery to start the motorcycle (not deplete the battery too much)?
