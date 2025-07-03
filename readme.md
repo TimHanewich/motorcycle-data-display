@@ -19,6 +19,11 @@ I provide the full wiring diagram as [wiring.drawio](./wiring.drawio) in this re
 
 ![wiring](https://i.imgur.com/RtzVz5e.png)
 
+## Source Code
+Once you get your hardware wired up according to the diagram above, you can load [the code](./src/) directly onto the Raspberry Pi Pico.
+
+All three files are required to be placed directly in the root directory.
+
 ## 3D Printed Enclosure
 I designed and 3D-printed the enclosure for this project. You can find the STL files available for download for free on Thingiverse [here](https://www.thingiverse.com/thing:7082009).
 
